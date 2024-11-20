@@ -57,7 +57,7 @@ optimizer = optim.Adam(autoencoder.parameters(), lr=0.0001, weight_decay = 1e-8)
 
 
 autoencoder.train()
-num_epochs = 200000
+num_epochs = 100000
 for epoch in range(num_epochs):
     inputs = torch.tensor(Y, dtype=torch.float32)
     targets = inputs.clone()
@@ -67,7 +67,7 @@ for epoch in range(num_epochs):
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
-    if epoch % 10000 == 0:
+    if epoch % 1000 == 0:
         print(epoch, loss)
 
 # Step 5: Obtain encoded data from the auto-encoder
